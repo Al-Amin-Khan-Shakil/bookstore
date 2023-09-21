@@ -1,3 +1,4 @@
+import AddBook from './AddBook';
 import BookItem from './BookItem';
 
 const Books = () => {
@@ -22,6 +23,7 @@ const Books = () => {
   return (
     <div className="books-wrapper">
       <BookItem books={books} />
+      <AddBook />
     </div>
   );
 };
