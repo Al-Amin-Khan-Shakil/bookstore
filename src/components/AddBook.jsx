@@ -27,10 +27,9 @@ const AddBook = () => {
 
     if (author && title) {
       dispatch(addBook(book));
+      setTitle('');
+      setAuthor('');
     }
-
-    setTitle('');
-    setAuthor('');
   };
 
   return (
