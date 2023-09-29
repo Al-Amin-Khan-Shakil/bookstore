@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const apiURL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/YrjR98HBMUNCv7ThDcq2/books';
+const apiURL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/SERz0T6MOlfncfi0umcc/books';
 
 const initialState = {
   books: [],
@@ -14,7 +14,7 @@ export const getBook = createAsyncThunk('books/getBook', async () => {
     const response = await axios.get(apiURL);
     const { data } = response;
     const extractedObjects = Object.entries(data)
-      .flatMap(([itemId, array]) => array.map((item) => ({ itemId, ...item })));
+      .flatMap(([item_id, array]) => array.map((item) => ({ item_id, ...item })));
 
     console.log(extractedObjects);
     return extractedObjects;
@@ -25,18 +25,18 @@ export const getBook = createAsyncThunk('books/getBook', async () => {
 
 export const addBook = createAsyncThunk('books/addBook', async (book) => {
   try {
-    const response = await axios.post(apiURL, book);
-    return response.data;
+    await axios.post(apiURL, book);
+    console.log(book);
+    return book;
   } catch (error) {
     return error.message;
   }
 });
 
 export const removeBook = createAsyncThunk('books/removeBook', async (itemId) => {
-  const response = await axios.delete(`${apiURL}/${itemId}`);
-  const { data } = response;
-  console.log(data);
-  return data;
+  await axios.delete(`${apiURL}/${itemId}`);
+
+  return itemId;
 });
 
 const bookSlice = createSlice({
@@ -55,11 +55,22 @@ const bookSlice = createSlice({
         state.loading = false;
         state.error = action.payload;
       })
+      .addCase(addBook.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(addBook.fulfilled, (state, action) => {
+        state.books = [...state.books, action.payload];
+        state.loading = false;
+      })
+      .addCase(addBook.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+      })
       .addCase(removeBook.pending, (state) => {
         state.loading = true;
       })
       .addCase(removeBook.fulfilled, (state, action) => {
-        state.books = state.books.filter((book) => book.id !== action.payload);
+        state.books = state.books.filter((book) => book.item_id !== action.payload);
         state.loading = false;
       })
       .addCase(removeBook.rejected, (state, action) => {

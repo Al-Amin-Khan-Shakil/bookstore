@@ -8,15 +8,15 @@ const BookItem = () => {
   const books = useSelector((state) => state.book.books);
   useEffect(() => {
     dispatch(getBook());
-  }, []);
+  }, [dispatch]);
 
   return (
     <ul className="books-container">
       {books.map((book) => (
-        <li className="book-item" key={book.itemId} id={book.itemId}>
+        <li className="book-item" key={book.item_id} id={book.item_id}>
           <h2 className="book-title">{book.title}</h2>
           <p className="book-author">{book.author}</p>
-          <DeleteBook bookId={book.itemId} />
+          <DeleteBook bookId={book.item_id} />
         </li>
       ))}
     </ul>
