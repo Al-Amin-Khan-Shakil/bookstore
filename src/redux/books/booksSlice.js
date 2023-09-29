@@ -16,7 +16,6 @@ export const getBook = createAsyncThunk('books/getBook', async () => {
     const extractedObjects = Object.entries(data)
       .flatMap(([item_id, array]) => array.map((item) => ({ item_id, ...item })));
 
-    console.log(extractedObjects);
     return extractedObjects;
   } catch (error) {
     return error.message;
@@ -26,7 +25,6 @@ export const getBook = createAsyncThunk('books/getBook', async () => {
 export const addBook = createAsyncThunk('books/addBook', async (book) => {
   try {
     await axios.post(apiURL, book);
-    console.log(book);
     return book;
   } catch (error) {
     return error.message;
