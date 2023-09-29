@@ -13,7 +13,7 @@ const Navbar = () => (
       </li>
     </ul>
     <button className="icon-button" type="button">
-      <BsFillPersonFill className="primary-color" />
+      <BsFillPersonFill className="primary-color material-icons" />
     </button>
   </nav>
 );
