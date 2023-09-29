@@ -5,6 +5,7 @@ const Books = () => (
   <div className="container">
     <div>
       <BookItem />
+      <div className="horizontal-divider" />
       <AddBook />
     </div>
   </div>
