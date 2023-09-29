@@ -1,16 +1,20 @@
 import { NavLink } from 'react-router-dom';
+import { BsFillPersonFill } from 'react-icons/bs';
 
 const Navbar = () => (
-  <nav className="navbar">
-    <div className="logo">Bookstore CMS</div>
-    <ul className="menu">
+  <nav className="nav-bar">
+    <NavLink className="nav-brand" to="/">Bookstore CMS</NavLink>
+    <ul className="nav-links">
       <li className="menu-list">
-        <NavLink className="navlink" to="/">Books</NavLink>
+        <NavLink className="nav-link" to="/">BOOKS</NavLink>
       </li>
       <li className="menu-list">
-        <NavLink className="navlink" to="/categories">Categories</NavLink>
+        <NavLink className="nav-link" to="/categories">CATEGORIES</NavLink>
       </li>
     </ul>
+    <button className="icon-button" type="button">
+      <BsFillPersonFill className="primary-color" />
+    </button>
   </nav>
 );
 
