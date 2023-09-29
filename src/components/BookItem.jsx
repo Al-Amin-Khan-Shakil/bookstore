@@ -1,9 +1,14 @@
-// import PropTypes from 'prop-types';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 import DeleteBook from './DeleteBook';
+import { getBook } from '../redux/books/booksSlice';
 
 const BookItem = () => {
+  const dispatch = useDispatch();
   const books = useSelector((state) => state.book.books);
+  useEffect(() => {
+    dispatch(getBook());
+  }, [dispatch]);
 
   return (
     <ul className="books-container">
@@ -17,15 +22,5 @@ const BookItem = () => {
     </ul>
   );
 };
-
-// BookItem.propTypes = {
-//   books: PropTypes.arrayOf(
-//     PropTypes.shape({
-//       id: PropTypes.number.isRequired,
-//       title: PropTypes.string.isRequired,
-//       author: PropTypes.string.isRequired,
-//     }),
-//   ).isRequired,
-// };
 
 export default BookItem;
