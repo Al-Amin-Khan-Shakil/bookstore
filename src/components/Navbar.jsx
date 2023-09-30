@@ -3,7 +3,7 @@ import { BsFillPersonFill } from 'react-icons/bs';
 
 const Navbar = () => (
   <nav className="nav-bar">
-    <NavLink className="nav-brand" to="/">Bookstore CMS</NavLink>
+    <a className="nav-brand" href="/">Bookstore CMS</a>
     <ul className="nav-links">
       <li className="menu-list">
         <NavLink className="nav-link" to="/">BOOKS</NavLink>
