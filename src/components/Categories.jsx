@@ -1,3 +1,3 @@
-const Categories = () => (<div>Under Development</div>);
+const Categories = () => (<div className="category-title">Under Development</div>);
 
 export default Categories;
