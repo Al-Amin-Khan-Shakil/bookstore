@@ -16,13 +16,17 @@ const AddBook = () => {
     setAuthor(event.target.value);
   };
 
+  const categories = ['Fiction', 'Non-Fiction', 'Mystery', 'Science Fiction', 'Fantasy', 'Romance', 'Biography', 'Self-Help', 'History', 'Thriller'];
+
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    const randomCategory = categories[Math.floor(Math.random() * categories.length)];
     const book = {
       item_id: uuidv4(),
       title,
       author,
-      category: 'Default category',
+      category: randomCategory,
     };
 
     if (author && title) {

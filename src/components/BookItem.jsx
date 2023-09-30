@@ -33,14 +33,21 @@ const BookItem = () => {
                   <div className="circular-progress" />
                 </div>
                 <div className="progress-stat">
-                  <p className="percent-complete">64%</p>
+                  <p className="percent-complete">
+                    { Math.floor(Math.random() * (75 - 40 + 1)) + 40 }
+                    %
+                  </p>
                   <p className="completed">Completed</p>
                 </div>
                 <div className="progress-divider" />
                 <div className="current-chapter-container">
                   <div>
                     <p className="current-chapter-label">CURRENT CHAPTER</p>
-                    <p className="current-chapter">Chapter 17</p>
+                    <p className="current-chapter">
+                      Chapter
+                      {' '}
+                      { Math.floor(Math.random() * 30) + 1 }
+                    </p>
                   </div>
                   <div>
                     <button type="button" className="primary-button">UPDATE PROGRESS</button>
