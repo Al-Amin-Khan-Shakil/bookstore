@@ -27,7 +27,7 @@
 
 # 📖 Bookstore <a name="about-project"></a>
 
-**Mathstore** is a simple app created by react app that display book list with title and author and give options to add or delete books.
+**Bookstore** is a simple app created by react app that display book list with title and author and give options to add or delete books.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -51,6 +51,7 @@
 - **React**
 - **SPA**
 - **React Router**
+- **Redux Toolkit**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -111,7 +112,7 @@ To run tests, run the following command:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- **Click Events**
+- **Events**
 - **Full Website**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
